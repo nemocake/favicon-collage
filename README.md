@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/banner.jpg" width="100%" alt="Favicon Collage"></p>
+
 # Favicon Collage
 
 **Turn your browser history into a collage made from the favicons of every site you have visited.**
@@ -5,9 +7,8 @@
 Every tile is a real favicon. Lay them out in order and you get a woven timeline of where your attention went. Sort them by colour and they become a gradient. Pack them by how often you visited and your obsessions bloom into the biggest shapes.
 
 <p align="center">
-  <img src="docs/example-grid.png" width="32%" alt="chronological grid">
-  <img src="docs/sample-spiral.png" width="32%" alt="spiral">
-  <img src="docs/example-treemap.png" width="32%" alt="treemap">
+  <img src="docs/sample-spiral.png" width="49%" alt="spiral">
+  <img src="docs/example-treemap.png" width="49%" alt="treemap">
 </p>
 
 > **Everything stays on your machine.** Your history is read inside your own browser and drawn to a canvas locally. Nothing is uploaded or stored anywhere. There is no server.
