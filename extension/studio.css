@@ -96,7 +96,8 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
   display: flex; flex-direction: column;
   background: radial-gradient(120% 80% at 50% 42%, #161310 0%, var(--bg) 70%); }
 .viewport { position: relative; flex: 1; min-height: 0; overflow: hidden;
-  cursor: grab; }
+  cursor: grab; user-select: none; }
+#canvas { -webkit-user-drag: none; }
 .viewport.dragging { cursor: grabbing; }
 
 .zoombar { position: absolute; bottom: 14px; right: 14px; z-index: 4;

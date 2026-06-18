@@ -1,10 +1,10 @@
 # Favicon Collage 🎨
 
-**Turn your browser history into art — a collage woven from the favicons of every site you've visited.**
+**Turn your browser history into a collage made from the favicons of every site you've visited.**
 
-Every tile is a real favicon. Lay them out chronologically and you get a woven timeline of where your attention went; sort them by colour and they become a gradient; pack them by frequency and your obsessions bloom into the biggest shapes. It started as a way to visualise a year of art "rabbit-hole" browsing, and this repo makes it something anyone can run on their own history.
+Every tile is a real favicon. Lay them out in order and you get a woven timeline of where your attention went; sort them by colour and they become a gradient; pack them by how often you visited and your obsessions bloom into the biggest shapes.
 
-> 🔒 **100% local.** Your history is read in your own browser and rendered to a canvas on your machine. Nothing is ever uploaded, sent, or stored anywhere. There is no server.
+> 🔒 **Everything stays on your machine.** Your history is read inside your own browser and drawn to a canvas locally. Nothing is uploaded, sent, or stored anywhere. There is no server.
 
 <p align="center">
   <img src="docs/sample-spiral.png" width="32%" alt="spiral">
@@ -12,30 +12,36 @@ Every tile is a real favicon. Lay them out chronologically and you get a woven t
   <img src="docs/sample-treemap.png" width="32%" alt="treemap">
 </p>
 
+> 🛈 **A one click Chrome Web Store version is on the way.** It's being prepared for the store, and approval takes a while. Until it's live you can add the exact same extension yourself in about a minute — just follow the steps below.
+
 ---
 
-## Two ways to use it
+## Add it to your browser (about a minute, no coding)
 
-### 1. Browser extension (recommended — no terminal)
+You're just pointing your browser at a folder. Works in **Chrome, Brave, Edge, Arc, Vivaldi, Opera** — anything built on Chrome.
 
-A one-page studio inside your browser. Pick a timeframe and a layout, hit **Generate**, **Save PNG**. Works in any Chromium browser: **Chrome, Brave, Edge, Arc, Vivaldi**.
+1. **Get the files.** Near the top of this page click the green **Code** button → **Download ZIP**, then unzip it. You'll get a folder named `favicon-collage`.
+2. **Open the extensions page.** In your browser's address bar, type one of these and press Enter:
+   - Chrome → `chrome://extensions`
+   - Brave → `brave://extensions`
+   - Edge → `edge://extensions`
+3. **Turn on Developer mode.** It's a switch in the top right corner. Flip it on.
+4. **Load it.** Click **Load unpacked**, then choose the **`extension`** folder *inside* the `favicon-collage` folder you unzipped. (Select the `extension` folder itself — don't go inside it.)
+5. **Open it.** A small mosaic icon appears in your toolbar (click the 🧩 puzzle piece to pin it if you don't see it). Click the icon and the studio opens in a new tab.
+6. **Make a collage.** Press **Generate**. The first time, your browser will ask to let it read your history — click **Allow**. (That reading happens on the page and is never sent anywhere.)
 
-**Install (sideload):**
-1. Download / clone this repo.
-2. Open `chrome://extensions` (or `brave://extensions`, `edge://extensions`, …).
-3. Turn on **Developer mode** (top-right).
-4. Click **Load unpacked** and select the `extension/` folder.
-5. Click the new toolbar icon — the studio opens in a tab. The first **Generate** will ask permission to read your history (it never leaves the page).
+**Updating later:** re-download the ZIP, then on the extensions page click **↻ Reload** on the Favicon Collage card.
 
-**Controls**
-- **Period** — last 7 / 30 / 90 days, 6 months, year, or all history.
-- **Form** — 14 layouts (see below). Switching is instant; favicons aren't reloaded.
-- **Favicons / Colour** — a toggle over the artwork. *Favicons* draws the real icons (the homage to favicons as unseen digital design); *Colour* reduces each one to its dominant colour for an abstract field. Same layout, two readings.
-- **Index** (left rail) — every domain in your history as a **checklist**, each with its favicon and visit count, sorted by frequency. **Uncheck anything you don't want** (your bank, x.com, whatever) and the collage re-renders live. Your choices are **remembered** across sessions. Bulk helpers: *All / None / Invert*, plus a search box. There is no built in blocklist; no two people's idea of "art" is alike, so you curate it yourself.
-- **Cap** — limits tiles for speed; over the cap it samples evenly across the period.
-- **Try demo** — see the layouts (and the index) with random tiles before granting any permission.
+### What the controls do
+- **Period** — last 7 / 30 / 90 days, 6 months, a year, or all history.
+- **Form** — 14 layouts (see below). Switching is instant.
+- **Favicons / Colour** — a toggle above the artwork. *Favicons* draws the real icons (the whole point — a small tribute to favicons as overlooked design); *Colour* flattens each to its dominant colour for an abstract field.
+- **Index** (left side) — every site in your history as a checklist with its favicon and visit count. **Uncheck anything you'd rather not show** (your bank, socials, whatever) and it updates instantly. Your choices are remembered. Bulk buttons: *All / None / Invert*, plus a search box. There's no built in blocklist — you decide what counts.
+- **Zoom & pan** — the artwork fits the frame automatically; scroll to zoom, drag to move around, or hit **Fit**.
+- **Save PNG** — exports at full resolution (much larger than what's on screen).
+- **Demo** — preview the layouts with placeholder tiles before you grant any permission. (These are *not* real favicons — Generate uses your actual history.)
 
-### 2. Python script (the original method)
+## Prefer a script?
 
 For people who'd rather run a script, `scripts/sqlite_mosaic.py` reads the browser's local SQLite files directly:
 

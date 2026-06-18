@@ -220,7 +220,7 @@
     const tiles = visible();
     lastMode = mode;
     if (!tiles.length) {
-      showEmpty("Nothing selected", "Re-check a few sites in the index to the left.");
+      showEmpty("Nothing selected", "Every site is unchecked — re-check a few in the index on the left.");
       return;
     }
     (R[mode] || R.chrono)(canvas, tiles);
@@ -251,7 +251,19 @@
       setStatus("open from the toolbar icon"); return;
     }
     $("generate").disabled = true; $("save").disabled = true;
-    try { const rows = await gatherHistory(); await loadFavicons(rows); onData(rows); }
+    try {
+      const rows = await gatherHistory();
+      if (!rows.length) {
+        allTiles = []; domains = [];
+        $("sidebar").hidden = true; $("rendertoggle").hidden = true;
+        setStatus("");
+        showEmpty("No history in this period",
+          "Nothing was found for the selected period — try a longer one.");
+        return;
+      }
+      await loadFavicons(rows);
+      onData(rows);
+    }
     catch (e) { setStatus("error: " + e.message); }
     finally { $("generate").disabled = false; }
   });
@@ -300,14 +312,16 @@
         count: 1 + rnd(i + 7) % 30, img: o.img, color: o.col };
     });
     onData(tiles);
-    setStatus("demo");
+    setStatus("demo — placeholder tiles, not real favicons (Generate uses your history)");
   });
 
   $("save").addEventListener("click", () => {
     canvas.toBlob((blob) => {
+      const stamp = new Date().toISOString().slice(0, 10);
+      const tag = R.getColorMode() ? "colour" : "favicons";
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
-      a.download = `favicon-collage-${lastMode}.png`;
+      a.download = `favicon-collage-${lastMode}-${tag}-${stamp}.png`;
       a.click(); URL.revokeObjectURL(a.href);
     });
   });
