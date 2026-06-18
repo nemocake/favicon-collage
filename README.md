@@ -32,35 +32,6 @@ No code needed. You are just pointing your browser at a folder. Works in Chrome,
 
 To update later, download the ZIP again and click **Reload** on the Favicon Collage card on the extensions page.
 
-## Controls
-
-- **Period.** Last 7, 30, or 90 days, 6 months, a year, or all history.
-- **Form.** 14 layouts, listed below. Switching is instant.
-- **Favicons / Colour.** A toggle above the artwork. Favicons draws the real icons. Colour flattens each one to its dominant colour for an abstract field.
-- **Index.** The left panel lists every site in your history with its favicon and visit count. Uncheck anything you would rather not show and the collage updates instantly. Your choices are remembered. There is no blocklist; you decide what counts. Bulk buttons (All, None, Invert) and a search box help with long lists.
-- **Zoom and pan.** The artwork fits the frame on its own. Scroll to zoom, drag to move around, or press **Fit**.
-- **Save PNG.** Exports at full resolution, much larger than what is on screen.
-- **Demo.** Previews the layouts with placeholder tiles before you grant any permission. These are not real favicons; Generate uses your actual history.
-
-## Layouts
-
-| Form | What it shows |
-|---|---|
-| Chronological grid | Every visit in order, a continuous timeline |
-| Grouped by site | Identical favicons clustered, the mass of each rabbit hole |
-| Unique sites | One tile per site, sized by how often you visited |
-| Spiral | A sunflower disc, chronological from the centre out |
-| Rainbow spiral | The same disc, ordered by colour |
-| Colour spectrum | Every favicon sorted by hue into a gradient |
-| Light to dark | Sorted by brightness into a tonal ramp |
-| Bubble pack | Sites drawn as circles, each sized by visit count |
-| Treemap | A rectangle per site, sized by visits and tiled with its icon |
-| Hilbert curve | Favicons threaded along a curve that fills the square, so each site becomes a region |
-| Year calendar | A calendar grid, each day showing its most visited site |
-| One icon per day | The whole span compressed to one favicon per day |
-| One row per day | Each row is a day; the ragged edge shows how far you went |
-| Time of day clock | Arranged by hour, showing when you browse |
-
 ## How it works
 
 Your browser already keeps two things on disk: your **history** and a cache of each site's **favicon**. The extension joins them and draws each favicon onto a canvas.
