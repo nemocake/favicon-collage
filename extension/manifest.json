@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Favicon Collage — your browsing as art",
+  "name": "Favicon Collage",
   "version": "1.0.0",
-  "description": "Turn your browser history into a favicon collage. 100% local — your history never leaves your machine.",
+  "description": "Turn your browser history into a favicon collage. Everything stays on your machine and nothing is uploaded.",
   "permissions": ["history", "favicon", "storage"],
   "background": { "service_worker": "background.js" },
   "action": { "default_title": "Make a favicon collage" },

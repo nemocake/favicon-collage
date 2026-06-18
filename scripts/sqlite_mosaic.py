@@ -8,7 +8,6 @@ browser extension. It works with Chrome / Brave / Edge / Vivaldi / Arc on
 macOS, Linux and Windows. Nothing leaves your machine.
 
   python3 sqlite_mosaic.py --browser brave --mode spiral --days 90
-  python3 sqlite_mosaic.py --browser chrome --art          # hide non-art
   python3 sqlite_mosaic.py --profile "/path/to/Default"    # explicit profile
 
 Requires Pillow:  pip install pillow
@@ -21,13 +20,6 @@ from PIL import Image, ImageDraw
 
 BG = (15, 14, 12)
 MISS = (40, 37, 32)
-
-# generic "not really art" blocklist (only applied with --art); edit freely
-NONART = ["facebook.", "instagram.", "twitter.", "x.com", "tiktok.", "reddit.",
-          "linkedin.", "pinterest.", "google.", "gstatic", "youtube.", "gmail",
-          "bing.com", "duckduckgo.", "netflix.", "twitch.", "spotify.",
-          "amazon.", "ebay.", "paypal.", "chase.com", "github.com", "localhost",
-          "stackoverflow.", "notion.so", "slack.com", "zoom.us"]
 
 
 def profile_dirs(browser):
@@ -70,7 +62,7 @@ def copy_db(path):
     return tmp
 
 
-def load(profile, days, art):
+def load(profile, days):
     hist = copy_db(os.path.join(profile, "History"))
     con = sqlite3.connect(hist)
     cutoff = ""
@@ -101,8 +93,6 @@ def load(profile, days, art):
         if not url.startswith("http"):
             continue
         d = domain_of(url)
-        if art and any(s in d for s in NONART):
-            continue
         tiles.append((d, cnt or 1))
     return tiles, icons
 
@@ -178,14 +168,13 @@ def main():
     ap.add_argument("--profile", help="explicit path to the profile dir (overrides --browser)")
     ap.add_argument("--mode", default="chrono", choices=["chrono", "spiral", "bubbles"])
     ap.add_argument("--days", type=int, default=90, help="0 = all history")
-    ap.add_argument("--art", action="store_true", help="hide common non-art domains")
     ap.add_argument("--out", default="favicon-collage.png")
     args = ap.parse_args()
 
     profile = args.profile or profile_dirs(args.browser)
     if not os.path.exists(os.path.join(profile, "History")):
         sys.exit(f"No History db at {profile!r}. Close the browser or pass --profile.")
-    tiles, icons = load(profile, args.days, args.art)
+    tiles, icons = load(profile, args.days)
     if not tiles:
         sys.exit("No history matched.")
     w, h = render(tiles, icons, args.mode, args.out)

@@ -1,7 +1,8 @@
 /* Favicon Collage — studio glue (runs as an extension page). */
 (function () {
-  const R = window.FaviconRenderers, F = window.FaviconFilter;
+  const R = window.FaviconRenderers;
   const $ = (id) => document.getElementById(id);
+  const domainOf = (url) => { try { return new URL(url).hostname; } catch { return ""; } };
   const canvas = $("canvas"), empty = $("empty");
   const hasExt = typeof chrome !== "undefined" && chrome.runtime;
 
@@ -11,7 +12,7 @@
     "spectrum": "Colour spectrum", "luminance": "Light to dark",
     "bubbles": "Bubble pack", "treemap": "Treemap", "hilbert": "Hilbert curve",
     "calendar": "Year calendar", "year-strip": "One icon per day",
-    "day-rows": "One row per day", "clock": "Time-of-day clock",
+    "day-rows": "One row per day", "clock": "Time of day clock",
     "unique": "Unique sites",
   };
 
@@ -108,7 +109,7 @@
     const items = await chrome.history.search({ text: "", startTime, maxResults: 1000000 });
     let rows = items
       .filter((it) => it.url && it.lastVisitTime && it.url.startsWith("http"))
-      .map((it) => ({ url: it.url, domain: F.domainOf(it.url),
+      .map((it) => ({ url: it.url, domain: domainOf(it.url),
         time: it.lastVisitTime, count: it.visitCount || 1, img: null, color: null }))
       .filter((t) => t.domain)
       .sort((a, b) => a.time - b.time);
@@ -202,7 +203,6 @@
   function bulk(kind) {
     if (kind === "all") excluded.clear();
     else if (kind === "none") domains.forEach((d) => excluded.add(d.domain));
-    else if (kind === "nonart") domains.forEach((d) => { if (F.hide.nonart(d.domain)) excluded.add(d.domain); });
     else if (kind === "invert") domains.forEach((d) => excluded.has(d.domain) ? excluded.delete(d.domain) : excluded.add(d.domain));
     saveExcluded(); renderRows(); redraw();
   }
@@ -274,9 +274,9 @@
   });
 
   $("demo").addEventListener("click", async () => {
-    const DOMS = ["are.na", "tate.org.uk", "moma.org", "archive.org", "getty.edu",
-      "artic.edu", "walkerart.org", "vam.ac.uk", "webumenia.sk", "jstor.org",
-      "x.com", "youtube.com", "mybank.com", "wikipedia.org", "rijksmuseum.nl"];
+    const DOMS = ["wikipedia.org", "youtube.com", "github.com", "nytimes.com",
+      "reddit.com", "archive.org", "tate.org.uk", "moma.org", "getty.edu",
+      "x.com", "google.com", "spotify.com", "mybank.com", "arxiv.org", "figma.com"];
     const PAL = [[217,96,59],[236,230,218],[70,90,160],[60,160,140],[200,60,70],
       [240,200,60],[150,142,126],[255,255,255],[90,140,200],[180,90,160]];
     const rnd = (n) => Math.floor((Math.sin(n * 999.7) * 0.5 + 0.5) * 1e6);

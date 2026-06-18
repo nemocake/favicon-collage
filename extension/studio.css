@@ -17,6 +17,7 @@
   --mono:  "SF Mono",ui-monospace,"JetBrains Mono",Menlo,monospace;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }  /* so .index / toggles honour the hidden attr */
 html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
   font-family: var(--mono); -webkit-font-smoothing: antialiased; }
 

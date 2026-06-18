@@ -31,7 +31,7 @@ A one-page studio inside your browser. Pick a timeframe and a layout, hit **Gene
 - **Period** — last 7 / 30 / 90 days, 6 months, year, or all history.
 - **Form** — 14 layouts (see below). Switching is instant; favicons aren't reloaded.
 - **Favicons / Colour** — a toggle over the artwork. *Favicons* draws the real icons (the homage to favicons as unseen digital design); *Colour* reduces each one to its dominant colour for an abstract field. Same layout, two readings.
-- **Index** (left rail) — every domain in your history as a **checklist**, each with its favicon and visit count, sorted by frequency. **Uncheck anything you don't want** (your bank, x.com, whatever) and the collage re-renders live. Your choices are **remembered** across sessions. Bulk helpers: *All / None / Hide non-art / Invert*, plus a search box. This is the real filter — no two people's "art" looks alike, so you curate it yourself instead of trusting a baked-in list.
+- **Index** (left rail) — every domain in your history as a **checklist**, each with its favicon and visit count, sorted by frequency. **Uncheck anything you don't want** (your bank, x.com, whatever) and the collage re-renders live. Your choices are **remembered** across sessions. Bulk helpers: *All / None / Invert*, plus a search box. There is no built in blocklist; no two people's idea of "art" is alike, so you curate it yourself.
 - **Cap** — limits tiles for speed; over the cap it samples evenly across the period.
 - **Try demo** — see the layouts (and the index) with random tiles before granting any permission.
 
@@ -42,7 +42,7 @@ For people who'd rather run a script, `scripts/sqlite_mosaic.py` reads the brows
 ```bash
 pip install pillow
 python3 scripts/sqlite_mosaic.py --browser brave --mode spiral --days 90
-python3 scripts/sqlite_mosaic.py --browser chrome --art      # hide non-art
+python3 scripts/sqlite_mosaic.py --browser chrome --days 30
 ```
 
 (Close the browser first, or it may lock the database — the script copies it to a temp file to be safe.) It ships with `chrono`, `spiral`, and `bubbles`; the extension has all 14.
@@ -66,7 +66,7 @@ python3 scripts/sqlite_mosaic.py --browser chrome --art      # hide non-art
 | **Year calendar** | GitHub-style grid, each day = its dominant site |
 | **One icon per day** | The year compressed to one signature favicon per day |
 | **One row per day** | Each row a day, ragged edge = how deep you went |
-| **Time-of-day clock** | Polar by hour — *when* you browse |
+| **Time of day clock** | Polar by hour, showing *when* you browse |
 
 ---
 
@@ -94,9 +94,9 @@ The rendering math (grid, phyllotaxis, squarified treemap, Hilbert `d2xy`, circl
 - **`favicon`** — to fetch the cached icon images.
 - No host permissions, no network requests, no analytics, no remote code. You can read every line; it's ~4 small files.
 
-## Customising the filter
+## Curating what shows
 
-The real filter is the **Sites checklist** in the studio — you curate it by hand and it's remembered. The optional **Hide non-art** bulk button is powered by editable domain-substring lists in `extension/filters.js` (`NONART` / `DECLUTTER`); tweak them to taste. The Python script has the same `NONART` list for its `--art` flag.
+There is no built in blocklist. After you Generate, the **Index** on the left lists every site in your history; uncheck the ones you don't want and the collage updates instantly. Your selections are saved, so you only prune once. (A broad "non art" filter is impossible to get right for everyone, so the tool leaves the choice to you.)
 
 ## Repo layout
 
@@ -104,9 +104,8 @@ The real filter is the **Sites checklist** in the studio — you curate it by ha
 extension/      the browser extension (load this unpacked)
   manifest.json, background.js, studio.html/.css/.js
   renderers.js  ← all 14 layout algorithms (pure, testable)
-  filters.js    ← editable domain filters
-scripts/        sqlite_mosaic.py — the original SQLite method
-tools/          render-test.html — headless render harness
+scripts/        sqlite_mosaic.py, the original SQLite method
+tools/          render-test.html, headless render harness
 docs/           sample images
 ```
 
