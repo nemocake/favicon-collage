@@ -1,4 +1,4 @@
-# Favicon Collage 🎨
+# Favicon Collage
 
 **Turn your browser history into a collage made from the favicons of every site you have visited.**
 
@@ -10,9 +10,9 @@ Every tile is a real favicon. Lay them out in order and you get a woven timeline
   <img src="docs/example-treemap.png" width="32%" alt="treemap">
 </p>
 
-> 🔒 **Everything stays on your machine.** Your history is read inside your own browser and drawn to a canvas locally. Nothing is uploaded or stored anywhere. There is no server.
+> **Everything stays on your machine.** Your history is read inside your own browser and drawn to a canvas locally. Nothing is uploaded or stored anywhere. There is no server.
 
-> 🛈 **A Chrome Web Store version is on the way.** Store approval takes time, so until it is live you can add the exact same extension yourself in about a minute with the steps below.
+> **A Chrome Web Store version is on the way.** Store approval takes time, so until it is live you can add the exact same extension yourself in about a minute with the steps below.
 
 ---
 
@@ -27,7 +27,7 @@ No code needed. You are just pointing your browser at a folder. Works in Chrome,
    - Edge: `edge://extensions`
 3. **Turn on Developer mode** using the switch in the top right corner.
 4. **Load it.** Click **Load unpacked** and choose the `extension` folder inside the folder you just unzipped. Pick the `extension` folder itself; do not open it.
-5. **Open it.** A small mosaic icon appears in your toolbar. If you do not see it, click the puzzle piece 🧩 and pin it. Click the icon and the studio opens in a new tab.
+5. **Open it.** A small mosaic icon appears in your toolbar. If you do not see it, click the puzzle piece icon and pin it. Click the icon and the studio opens in a new tab.
 6. **Make a collage.** Press **Generate**. The first time, your browser asks to let it read your history. Click **Allow**. That reading happens on the page and is never sent anywhere.
 
 To update later, download the ZIP again and click **Reload** on the Favicon Collage card on the extensions page.
