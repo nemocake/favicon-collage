@@ -28,11 +28,12 @@ A one-page studio inside your browser. Pick a timeframe and a layout, hit **Gene
 5. Click the new toolbar icon — the studio opens in a tab. The first **Generate** will ask permission to read your history (it never leaves the page).
 
 **Controls**
-- **Timeframe** — last 7 / 30 / 90 days, 6 months, year, or all history.
-- **Collage** — 14 layouts (see below). Switching is instant; favicons aren't reloaded.
-- **Sites panel** (left) — every domain in your history as a **checklist**, each with its favicon and visit count, sorted by frequency. **Uncheck anything you don't want** (your bank, x.com, whatever) and the collage re-renders live. Your choices are **remembered** across sessions. Bulk helpers: *All / None / Hide non-art / Invert*, plus a search box. This is the real filter — no two people's "art" looks alike, so you curate it yourself instead of trusting a baked-in list.
-- **Max tiles** — caps the render for speed; over the cap it samples evenly across the timeframe.
-- **Try demo data** — see the layouts (and the sites panel) with random tiles before granting any permission.
+- **Period** — last 7 / 30 / 90 days, 6 months, year, or all history.
+- **Form** — 14 layouts (see below). Switching is instant; favicons aren't reloaded.
+- **Favicons / Colour** — a toggle over the artwork. *Favicons* draws the real icons (the homage to favicons as unseen digital design); *Colour* reduces each one to its dominant colour for an abstract field. Same layout, two readings.
+- **Index** (left rail) — every domain in your history as a **checklist**, each with its favicon and visit count, sorted by frequency. **Uncheck anything you don't want** (your bank, x.com, whatever) and the collage re-renders live. Your choices are **remembered** across sessions. Bulk helpers: *All / None / Hide non-art / Invert*, plus a search box. This is the real filter — no two people's "art" looks alike, so you curate it yourself instead of trusting a baked-in list.
+- **Cap** — limits tiles for speed; over the cap it samples evenly across the period.
+- **Try demo** — see the layouts (and the index) with random tiles before granting any permission.
 
 ### 2. Python script (the original method)
 

@@ -8,6 +8,7 @@
 (function (root) {
   const BG = "#0f0e0c";
   const MISS = "#2a2722";
+  let colorMode = false;   // when true, draw each tile's average colour, not its favicon
 
   function ctxOf(canvas, w, h) {
     canvas.width = Math.max(1, Math.ceil(w));
@@ -19,7 +20,7 @@
   }
 
   function paint(ctx, t, x, y, s) {
-    if (t.img && t.img.complete && t.img.naturalWidth > 0) {
+    if (!colorMode && t.img && t.img.complete && t.img.naturalWidth > 0) {
       ctx.drawImage(t.img, x, y, s, s);
     } else {
       ctx.fillStyle = t.color
@@ -299,6 +300,8 @@
     }
   };
 
+  R.setColorMode = (v) => { colorMode = !!v; };
+  R.getColorMode = () => colorMode;
   root.FaviconRenderers = R;
   root.FaviconRenderers.MODES = [
     "chrono", "by-site", "spiral", "hue-spiral", "spectrum", "luminance",
