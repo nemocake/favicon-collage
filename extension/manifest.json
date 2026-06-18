@@ -3,7 +3,7 @@
   "name": "Favicon Collage — your browsing as art",
   "version": "1.0.0",
   "description": "Turn your browser history into a favicon collage. 100% local — your history never leaves your machine.",
-  "permissions": ["history", "favicon"],
+  "permissions": ["history", "favicon", "storage"],
   "background": { "service_worker": "background.js" },
   "action": { "default_title": "Make a favicon collage" },
   "icons": {

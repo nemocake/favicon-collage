@@ -30,9 +30,9 @@ A one-page studio inside your browser. Pick a timeframe and a layout, hit **Gene
 **Controls**
 - **Timeframe** — last 7 / 30 / 90 days, 6 months, year, or all history.
 - **Collage** — 14 layouts (see below). Switching is instant; favicons aren't reloaded.
-- **Show** — `Everything`, `Art / research only`, or `Declutter` (filters are plain editable lists in `extension/filters.js`).
+- **Sites panel** (left) — every domain in your history as a **checklist**, each with its favicon and visit count, sorted by frequency. **Uncheck anything you don't want** (your bank, x.com, whatever) and the collage re-renders live. Your choices are **remembered** across sessions. Bulk helpers: *All / None / Hide non-art / Invert*, plus a search box. This is the real filter — no two people's "art" looks alike, so you curate it yourself instead of trusting a baked-in list.
 - **Max tiles** — caps the render for speed; over the cap it samples evenly across the timeframe.
-- **Try demo data** — see the layouts with random tiles before granting any permission.
+- **Try demo data** — see the layouts (and the sites panel) with random tiles before granting any permission.
 
 ### 2. Python script (the original method)
 
@@ -95,7 +95,7 @@ The rendering math (grid, phyllotaxis, squarified treemap, Hilbert `d2xy`, circl
 
 ## Customising the filter
 
-`extension/filters.js` defines three presets as plain arrays of domain substrings. Add or remove entries, or add your own preset — a domain is kept unless a preset excludes it. The Python script has the same idea in its `NONART` list.
+The real filter is the **Sites checklist** in the studio — you curate it by hand and it's remembered. The optional **Hide non-art** bulk button is powered by editable domain-substring lists in `extension/filters.js` (`NONART` / `DECLUTTER`); tweak them to taste. The Python script has the same `NONART` list for its `--art` flag.
 
 ## Repo layout
 

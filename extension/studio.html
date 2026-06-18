@@ -30,14 +30,6 @@
         <select id="mode"></select>
       </div>
       <div class="field">
-        <label for="filter">Show</label>
-        <select id="filter">
-          <option value="everything">Everything</option>
-          <option value="art" selected>Art / research only</option>
-          <option value="declutter">Declutter</option>
-        </select>
-      </div>
-      <div class="field">
         <label for="maxtiles">Max tiles</label>
         <select id="maxtiles">
           <option value="1000">1,000</option>
@@ -57,13 +49,32 @@
       permission to read your history (it stays on this page).
     </div>
 
-    <div class="stage" id="stage">
-      <div class="empty" id="empty">
-        <h2>No collage yet</h2>
-        <p>Hit <b>Generate</b> to build one from your real history, or
-        <b>Try demo data</b> to see the layouts with random tiles first.</p>
+    <div class="body">
+      <aside class="sidebar" id="sidebar" hidden>
+        <div class="side-head">
+          <span id="sites-count">Sites</span>
+          <button id="side-collapse" title="Hide panel">‹</button>
+        </div>
+        <input id="site-search" type="search" placeholder="filter sites…">
+        <div class="bulk">
+          <button data-bulk="all">All</button>
+          <button data-bulk="none">None</button>
+          <button data-bulk="nonart" title="Uncheck common social/search/shopping/banking/dev sites">Hide non-art</button>
+          <button data-bulk="invert">Invert</button>
+        </div>
+        <div class="side-hint">Uncheck anything you don't want in the collage. Your choices are remembered.</div>
+        <div class="site-list" id="site-list"></div>
+      </aside>
+
+      <div class="stage" id="stage">
+        <button id="side-reopen" hidden title="Show sites">Sites ›</button>
+        <div class="empty" id="empty">
+          <h2>No collage yet</h2>
+          <p>Hit <b>Generate</b> to build one from your real history, or
+          <b>Try demo data</b> to see the layouts with random tiles first.</p>
+        </div>
+        <canvas id="canvas" style="display:none"></canvas>
       </div>
-      <canvas id="canvas" style="display:none"></canvas>
     </div>
   </div>
 

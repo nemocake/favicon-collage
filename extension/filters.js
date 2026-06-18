@@ -40,17 +40,23 @@
     };
   }
 
+  const hider = (list) => (dom) => {
+    const d = dom.toLowerCase();
+    return list.some((s) => d.includes(s));
+  };
+
   root.FaviconFilter = {
     domainOf,
+    // kept for the Python reference / parity
     presets: {
       everything: () => true,
       art: excluder(NONART),
       declutter: excluder(DECLUTTER),
     },
-    labels: {
-      everything: "Everything (your whole history)",
-      art: "Art / research only (hide social, search, shopping, banking, dev…)",
-      declutter: "Declutter (hide social, search, mail, banking, trackers)",
+    // optional bulk-hide helpers for the domain checklist (true = suggest hiding)
+    hide: {
+      nonart: hider(NONART),
+      declutter: hider(DECLUTTER),
     },
   };
 })(typeof window !== "undefined" ? window : globalThis);
