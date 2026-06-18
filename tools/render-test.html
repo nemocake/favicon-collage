@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>render test</title>
+<style>body{margin:0;background:#0f0e0c}canvas{display:block}</style></head>
+<body>
+<canvas id="c"></canvas>
+<script src="../extension/renderers.js"></script>
+<script>
+  const R = window.FaviconRenderers;
+  const DOMS = ["are.na","tate","moma","archive","getty","artic","walker","vam",
+                "webumenia","jstor","wiki","rijks","pompidou","ubu"];
+  const PAL = [[217,96,59],[236,230,218],[70,90,160],[60,160,140],[200,60,70],
+               [240,200,60],[150,142,126],[255,255,255],[90,140,200],[180,90,160]];
+  const rnd = (n)=>Math.floor((Math.sin(n*999.7)*0.5+0.5)*1e6);
+  const N = 800;
+  const tiles = Array.from({length:N},(_,i)=>({
+    domain: DOMS[rnd(i)%DOMS.length], url:"https://"+DOMS[rnd(i)%DOMS.length],
+    time: Date.now()-(N-i)*3*3600*1000, count: 1+rnd(i+7)%30,
+    img:null, color: PAL[rnd(i+3)%PAL.length],
+  }));
+  const mode = new URLSearchParams(location.search).get("mode") || "chrono";
+  try { (R[mode]||R.chrono)(document.getElementById("c"), tiles);
+        document.title = "ok:"+mode; }
+  catch(e){ document.title = "ERR:"+e.message; console.error(e); }
+</script>
+</body></html>

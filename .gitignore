@@ -1,0 +1,7 @@
+.DS_Store
+*.png.orig
+favicon-collage*.png
+/out/
+.playwright-mcp/
+__pycache__/
+*.pyc

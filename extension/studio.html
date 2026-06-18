@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Favicon Collage — studio</title>
+  <link rel="stylesheet" href="studio.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Favicon Collage</h1>
+      <span class="tag">your browsing history, as art</span>
+      <span class="priv">🔒 100% local — <b>nothing leaves your machine</b></span>
+    </header>
+
+    <div class="controls">
+      <div class="field">
+        <label for="timeframe">Timeframe</label>
+        <select id="timeframe">
+          <option value="7">Last 7 days</option>
+          <option value="30">Last 30 days</option>
+          <option value="90" selected>Last 90 days</option>
+          <option value="180">Last 6 months</option>
+          <option value="365">Last year</option>
+          <option value="0">All history</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="mode">Collage</label>
+        <select id="mode"></select>
+      </div>
+      <div class="field">
+        <label for="filter">Show</label>
+        <select id="filter">
+          <option value="everything">Everything</option>
+          <option value="art" selected>Art / research only</option>
+          <option value="declutter">Declutter</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="maxtiles">Max tiles</label>
+        <select id="maxtiles">
+          <option value="1000">1,000</option>
+          <option value="3000" selected>3,000</option>
+          <option value="6000">6,000</option>
+          <option value="20000">No limit</option>
+        </select>
+      </div>
+      <button id="generate" class="primary">Generate</button>
+      <div class="spacer"></div>
+      <button id="demo">Try demo data</button>
+      <button id="save" disabled>Save PNG</button>
+    </div>
+
+    <div class="status" id="status">
+      Pick a timeframe and collage, then <b>Generate</b>. First run will ask
+      permission to read your history (it stays on this page).
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="empty" id="empty">
+        <h2>No collage yet</h2>
+        <p>Hit <b>Generate</b> to build one from your real history, or
+        <b>Try demo data</b> to see the layouts with random tiles first.</p>
+      </div>
+      <canvas id="canvas" style="display:none"></canvas>
+    </div>
+  </div>
+
+  <script src="filters.js"></script>
+  <script src="renderers.js"></script>
+  <script src="studio.js"></script>
+</body>
+</html>
