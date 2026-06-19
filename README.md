@@ -11,27 +11,23 @@ Every tile is a real favicon. Lay them out in order and you get a woven timeline
   <img src="docs/example-treemap.png" width="49%" alt="treemap">
 </p>
 
-> **Everything stays on your machine.** Your history is read inside your own browser and drawn to a canvas locally. Nothing is uploaded or stored anywhere. There is no server.
+<p align="center"><a href="https://chromewebstore.google.com/detail/favicon-collage/fnlbaoakcopohleghenajjlmgkbbdhbm"><b>Add to Chrome</b></a></p>
 
-> **A Chrome Web Store version is on the way.** Store approval takes time, so until it is live you can add the exact same extension yourself in about a minute with the steps below.
+> **Everything stays on your machine.** Your history is read inside your own browser and drawn to a canvas locally. Nothing is uploaded or stored anywhere. There is no server.
 
 ---
 
-## Add it to your browser
+## Install
 
-No code needed. You are just pointing your browser at a folder. Works in Chrome, Brave, Edge, Arc, Vivaldi, and Opera.
+[**Add to Chrome**](https://chromewebstore.google.com/detail/favicon-collage/fnlbaoakcopohleghenajjlmgkbbdhbm) from the Chrome Web Store. It works in Chrome, Brave, Edge, Arc, Vivaldi, and Opera. Open it from the toolbar icon, press **Generate**, and the first time your browser asks to read your history click **Allow**. That reading happens on the page and is never sent anywhere.
 
-1. **Get the files.** Click the green **Code** button near the top of this page, choose **Download ZIP**, and unzip it.
-2. **Open the extensions page.** Type one of these in your address bar and press Enter:
-   - Chrome: `chrome://extensions`
-   - Brave: `brave://extensions`
-   - Edge: `edge://extensions`
-3. **Turn on Developer mode** using the switch in the top right corner.
-4. **Load it.** Click **Load unpacked** and choose the `extension` folder inside the folder you just unzipped. Pick the `extension` folder itself; do not open it.
-5. **Open it.** A small mosaic icon appears in your toolbar. If you do not see it, click the puzzle piece icon and pin it. Click the icon and the studio opens in a new tab.
-6. **Make a collage.** Press **Generate**. The first time, your browser asks to let it read your history. Click **Allow**. That reading happens on the page and is never sent anywhere.
+### Or load it from this repo
 
-To update later, download the ZIP again and click **Reload** on the Favicon Collage card on the extensions page.
+To run the newest version straight from the source, or to tinker with it:
+
+1. Click the green **Code** button above, choose **Download ZIP**, and unzip it.
+2. Open your extensions page (`chrome://extensions`, `brave://extensions`, or `edge://extensions`) and turn on **Developer mode** in the top right.
+3. Click **Load unpacked** and choose the `extension` folder inside the unzipped folder.
 
 ## How it works
 
